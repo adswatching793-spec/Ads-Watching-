@@ -99,7 +99,9 @@ window.location.href="login.html";
 // Gift Open Function
 
 window.openGift = function(){
-
+    
+alert("clicked");
+    
 let gift = document.getElementById("giftScreen");
 
 gift.classList.add("open-animation");
