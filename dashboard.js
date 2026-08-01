@@ -100,13 +100,21 @@ window.location.href="login.html";
 
 window.openGift = function(){
 
-
-let gift = document.querySelector(".gift");
-
-
-if(gift){
+let gift = document.getElementById("giftScreen");
 
 gift.classList.add("open-animation");
+
+
+setTimeout(()=>{
+
+gift.style.display="none";
+
+document.getElementById("balance").innerHTML="PKR 2000";
+
+localStorage.setItem("giftOpened","yes");
+
+},1000);
+
 
 }
 
