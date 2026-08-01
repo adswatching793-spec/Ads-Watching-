@@ -1,73 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Watch Videos - Ads Watching</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
 <div class="container">
 
-    <h1>🎥 Watch Ads</h1>
-    <p>Watch videos and complete tasks</p>
+
+<h1>🎥 Watch Ads</h1>
+
+<p>Complete videos and track your tasks</p>
 
 
-    <div class="card balance-card">
-        <p>Your Today Earnings</p>
-        <h1 id="earning">PKR 0</h1>
-    </div>
+
+<div class="card">
+
+<h2>Advertisement 1</h2>
+
+<p>Watch this ad for 30 seconds</p>
 
 
-    <div class="card">
-        <h2>Video Task 1</h2>
-        <p>Watch this video for 30 seconds</p>
-
-        <button class="login" onclick="startVideo()">
-            ▶ Start Watching
-        </button>
-
-        <h3 id="timer" style="margin-top:15px;">
-            Timer: 30s
-        </h3>
-
-    </div>
+<div style="background:#020617;height:180px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:50px;">
+▶️
+</div>
 
 
-    <button class="register" onclick="location.href='dashboard.html'">
-        ⬅ Back Dashboard
-    </button>
+<h3 id="timer" style="margin-top:20px;">
+Ready
+</h3>
+
+
+<button class="login" onclick="startWatch()">
+Start Watching
+</button>
+
 
 </div>
 
 
+
+
+<div class="card">
+
+<h3>
+Today's Earning
+</h3>
+
+<h1 id="earning">
+PKR 0
+</h1>
+
+
+</div>
+
+
+
+<button class="register" onclick="location.href='dashboard.html'">
+⬅ Back Dashboard
+</button>
+
+
+
+</div>
+
+
+
 <script>
 
-let time = 30;
+let seconds = 30;
 let earning = 0;
 
-function startVideo(){
+
+function startWatch(){
 
 let timer = setInterval(function(){
 
 document.getElementById("timer").innerHTML =
-"Timer: " + time + "s";
+"Time Left: " + seconds + "s";
 
-time--;
 
-if(time < 0){
+seconds--;
+
+
+if(seconds < 0){
 
 clearInterval(timer);
 
 earning = 100;
 
+
 document.getElementById("earning").innerHTML =
 "PKR " + earning;
 
+
 document.getElementById("timer").innerHTML =
-"✅ Video Completed";
+"✅ Completed";
 
 }
 
@@ -79,4 +117,5 @@ document.getElementById("timer").innerHTML =
 
 
 </body>
+
 </html>
