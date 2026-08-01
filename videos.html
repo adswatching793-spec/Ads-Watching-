@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Watch Videos - Ads Watching</title>
+<link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<div class="container">
+
+    <h1>🎥 Watch Ads</h1>
+    <p>Watch videos and complete tasks</p>
+
+
+    <div class="card balance-card">
+        <p>Your Today Earnings</p>
+        <h1 id="earning">PKR 0</h1>
+    </div>
+
+
+    <div class="card">
+        <h2>Video Task 1</h2>
+        <p>Watch this video for 30 seconds</p>
+
+        <button class="login" onclick="startVideo()">
+            ▶ Start Watching
+        </button>
+
+        <h3 id="timer" style="margin-top:15px;">
+            Timer: 30s
+        </h3>
+
+    </div>
+
+
+    <button class="register" onclick="location.href='dashboard.html'">
+        ⬅ Back Dashboard
+    </button>
+
+</div>
+
+
+<script>
+
+let time = 30;
+let earning = 0;
+
+function startVideo(){
+
+let timer = setInterval(function(){
+
+document.getElementById("timer").innerHTML =
+"Timer: " + time + "s";
+
+time--;
+
+if(time < 0){
+
+clearInterval(timer);
+
+earning = 100;
+
+document.getElementById("earning").innerHTML =
+"PKR " + earning;
+
+document.getElementById("timer").innerHTML =
+"✅ Video Completed";
+
+}
+
+},1000);
+
+}
+
+</script>
+
+
+</body>
+</html>
