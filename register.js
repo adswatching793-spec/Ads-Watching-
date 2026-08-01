@@ -1,5 +1,16 @@
-import { auth } from "./firebase.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+import { auth, db } from "./firebase.js";
+
+import { 
+createUserWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+
+import {
+doc,
+setDoc
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-firestore.js";
+
+
 
 const registerBtn = document.getElementById("registerBtn");
 
@@ -10,43 +21,71 @@ const password = document.getElementById("password");
 const msg = document.getElementById("msg");
 
 
+
 registerBtn.addEventListener("click", async () => {
 
-  if(name.value === "" || email.value === "" || password.value === ""){
 
-    msg.innerHTML = "Please fill all fields.";
-    return;
+if(name.value === "" || email.value === "" || password.value === ""){
 
-  }
+msg.innerHTML = "Please fill all fields.";
+return;
 
-
-  try {
-
-    await createUserWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value
-    );
+}
 
 
-    // Save basic user info
-    localStorage.setItem("userName", name.value);
-    localStorage.setItem("userEmail", email.value);
-    localStorage.setItem("balance", "0");
+
+try{
 
 
-    msg.innerHTML = "Account created successfully!";
+const userCredential = await createUserWithEmailAndPassword(
+auth,
+email.value,
+password.value
+);
 
 
-    setTimeout(() => {
-      window.location.href = "login.html";
-    },1000);
+
+const user = userCredential.user;
 
 
-  } catch(error){
 
-    msg.innerHTML = error.message;
+// Save user in Firestore
 
-  }
+await setDoc(doc(db,"users",user.uid),{
+
+name:name.value,
+email:email.value,
+balance:"0"
+
+});
+
+
+
+// Save local data
+
+localStorage.setItem("userName",name.value);
+localStorage.setItem("userEmail",email.value);
+localStorage.setItem("balance","0");
+
+
+
+msg.innerHTML="Account created successfully!";
+
+
+setTimeout(()=>{
+
+window.location.href="login.html";
+
+},1000);
+
+
+
+}catch(error){
+
+msg.innerHTML = error.message;
+
+}
+
+
 
 });
