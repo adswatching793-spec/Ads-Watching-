@@ -1,54 +1,140 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',Arial,sans-serif;
 }
 
 body{
-background:#0f172a;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    background:linear-gradient(135deg,#020617,#0f172a,#1e293b);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
 }
 
+
+/* Main Card */
 .container{
-width:90%;
-max-width:400px;
-background:#1e293b;
-padding:30px;
-border-radius:15px;
-text-align:center;
-box-shadow:0 0 20px rgba(0,0,0,.4);
+    width:90%;
+    max-width:420px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    padding:35px 30px;
+    border-radius:20px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.15);
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    animation:fadeIn .6s ease;
 }
+
 
 h1{
-color:#fff;
-margin-bottom:15px;
+    color:#fff;
+    font-size:32px;
+    margin-bottom:15px;
+    letter-spacing:1px;
 }
+
 
 p{
-color:#cbd5e1;
-margin-bottom:25px;
+    color:#cbd5e1;
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:25px;
 }
 
+
+/* Buttons */
 button{
-width:100%;
-padding:15px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-font-size:18px;
-cursor:pointer;
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
 }
 
+
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+
+/* Login Button */
 .login{
-background:#2563eb;
-color:#fff;
+    background:linear-gradient(135deg,#2563eb,#38bdf8);
+    color:white;
 }
 
+
+/* Register Button */
 .register{
-background:#10b981;
-color:#fff;
+    background:linear-gradient(135deg,#10b981,#22c55e);
+    color:white;
+}
+
+
+/* Inputs (Login/Register pages ke liye) */
+input{
+    width:100%;
+    padding:14px;
+    margin:10px 0;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    background:rgba(255,255,255,.1);
+    color:white;
+    font-size:16px;
+}
+
+
+input::placeholder{
+    color:#cbd5e1;
+}
+
+
+/* Cards */
+.card{
+    background:rgba(255,255,255,.08);
+    padding:20px;
+    border-radius:15px;
+    margin:15px 0;
+    border:1px solid rgba(255,255,255,.1);
+}
+
+
+/* Animation */
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* Mobile Responsive */
+@media(max-width:500px){
+
+    .container{
+        padding:25px 20px;
+    }
+
+    h1{
+        font-size:26px;
+    }
+
+    button{
+        font-size:16px;
+    }
+
 }
