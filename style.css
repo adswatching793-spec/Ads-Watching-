@@ -234,7 +234,6 @@ button:active{
     100%{
         transform:scale(0);
         opacity:0;
-    }
     
 }.reward-card{
     width:100%;
