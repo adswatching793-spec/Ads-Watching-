@@ -13,13 +13,15 @@
 
 <h1>Create Account</h1>
 
-<input type="text" placeholder="Full Name" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;">
+<input id="name" type="text" placeholder="Full Name" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;">
 
-<input type="email" placeholder="Email Address" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;">
+<input id="email" type="email" placeholder="Email Address" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;">
 
-<input type="password" placeholder="Create Password" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;">
+<input id="password" type="password" placeholder="Create Password" style="width:100%;padding:15px;margin:10px 0;border:none;border-radius:10px;">
 
-<button class="register">Create Account</button>
+<button id="registerBtn" class="register">Create Account</button>
+
+<p id="msg" style="color:white;margin-top:15px;"></p>
 
 <p style="margin-top:20px;color:white;">
 Already have an account?
@@ -28,6 +30,8 @@ Already have an account?
 <a href="login.html" style="color:#2563eb;text-decoration:none;">
 Login Here
 </a>
+
+<script type="module" src="register.js"></script>
 
 </div>
 
