@@ -5,62 +5,88 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Watch Videos - Ads Watching</title>
+<title>Watch Ads</title>
 
 <link rel="stylesheet" href="style.css">
 
 </head>
 
-
 <body>
-
 
 <div class="container">
 
-
 <h1>🎥 Watch Ads</h1>
 
-<p>Complete videos and track your tasks</p>
-
+<p>Complete your daily tasks</p>
 
 
 <div class="card">
 
 <h2>Advertisement 1</h2>
 
-<p>Watch this ad for 30 seconds</p>
+<p>Reward: PKR 100</p>
 
-
-<div style="background:#020617;height:180px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:50px;">
+<div style="background:#020617;height:150px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:45px;">
 ▶️
 </div>
 
-
-<h3 id="timer" style="margin-top:20px;">
-Ready
-</h3>
-
-
-<button class="login" onclick="startWatch()">
+<button class="login" onclick="watchAd(1)">
 Start Watching
 </button>
 
+<p id="status1">Not Started</p>
 
 </div>
-
 
 
 
 <div class="card">
 
-<h3>
-Today's Earning
-</h3>
+<h2>Advertisement 2</h2>
+
+<p>Reward: PKR 100</p>
+
+<div style="background:#020617;height:150px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:45px;">
+▶️
+</div>
+
+<button class="login" onclick="watchAd(2)">
+Start Watching
+</button>
+
+<p id="status2">Not Started</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Advertisement 3</h2>
+
+<p>Reward: PKR 100</p>
+
+<div style="background:#020617;height:150px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-size:45px;">
+▶️
+</div>
+
+<button class="login" onclick="watchAd(3)">
+Start Watching
+</button>
+
+<p id="status3">Not Started</p>
+
+</div>
+
+
+
+<div class="card balance-card">
+
+<h3>Total Today's Earning</h3>
 
 <h1 id="earning">
 PKR 0
 </h1>
-
 
 </div>
 
@@ -71,41 +97,39 @@ PKR 0
 </button>
 
 
-
 </div>
 
 
 
 <script>
 
-let seconds = 30;
-let earning = 0;
+let total = 0;
 
 
-function startWatch(){
+function watchAd(id){
 
-let timer = setInterval(function(){
+let time = 10;
 
-document.getElementById("timer").innerHTML =
-"Time Left: " + seconds + "s";
-
-
-seconds--;
+let status = document.getElementById("status"+id);
 
 
-if(seconds < 0){
+let timer = setInterval(()=>{
+
+status.innerHTML="Watching: "+time+"s";
+
+time--;
+
+
+if(time < 0){
 
 clearInterval(timer);
 
-earning = 100;
+status.innerHTML="✅ Completed";
 
+total += 100;
 
 document.getElementById("earning").innerHTML =
-"PKR " + earning;
-
-
-document.getElementById("timer").innerHTML =
-"✅ Completed";
+"PKR "+total;
 
 }
 
@@ -117,5 +141,4 @@ document.getElementById("timer").innerHTML =
 
 
 </body>
-
 </html>
