@@ -24,3 +24,12 @@ if(userEmail && emailElement){
 if(balance && balanceElement){
     balanceElement.innerHTML = "PKR " + balance;
 }
+function logout(){
+
+    localStorage.removeItem("userEmail");
+    localStorage.removeItem("userName");
+    localStorage.removeItem("balance");
+
+    window.location.href = "login.html";
+
+}
