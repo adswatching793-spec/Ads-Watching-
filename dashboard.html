@@ -376,24 +376,12 @@ onclick="logout()">
 
 
 function openGift(){
-if(localStorage.getItem("giftOpened") === "yes"){
 
 document.getElementById("giftScreen").style.display="none";
-for(let i=0;i<25;i++){
 
-let c=document.createElement("div");
+localStorage.setItem("giftOpened","yes");
 
-c.className="confetti";
-
-c.innerHTML="🪙";
-
-c.style.left=Math.random()*100+"%";
-
-document.body.appendChild(c);
-
-setTimeout(()=>{
-c.remove();
-},2500);
+document.getElementById("balance").innerHTML="PKR 2000";
 
 }
 document.getElementById("balance").innerHTML="PKR 2000";
