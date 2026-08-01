@@ -17,6 +17,21 @@ const balanceElement = document.getElementById("balance");
 
 
 
+// Gift Check
+
+if(localStorage.getItem("giftOpened") === "yes"){
+
+    let gift = document.getElementById("giftScreen");
+
+    if(gift){
+        gift.style.display="none";
+    }
+
+}
+
+
+
+
 onAuthStateChanged(auth, async (user)=>{
 
 
@@ -45,8 +60,20 @@ emailElement.innerHTML = data.email;
 }
 
 
+// First show zero until gift open
+
 if(balanceElement){
-balanceElement.innerHTML = "PKR " + data.balance;
+
+if(localStorage.getItem("giftOpened") === "yes"){
+
+balanceElement.innerHTML="PKR 2000";
+
+}else{
+
+balanceElement.innerHTML="PKR 0";
+
+}
+
 }
 
 
@@ -69,7 +96,45 @@ window.location.href="login.html";
 
 
 
-function logout(){
+// Gift Open Function
+
+window.openGift = function(){
+
+
+let gift = document.querySelector(".gift");
+
+
+if(gift){
+
+gift.classList.add("open-animation");
+
+}
+
+
+
+setTimeout(()=>{
+
+
+document.getElementById("giftScreen").style.display="none";
+
+localStorage.setItem("giftOpened","yes");
+
+
+document.getElementById("balance").innerHTML="PKR 2000";
+
+
+
+},1000);
+
+
+
+}
+
+
+
+
+
+window.logout = function(){
 
 localStorage.removeItem("userEmail");
 localStorage.removeItem("userName");
