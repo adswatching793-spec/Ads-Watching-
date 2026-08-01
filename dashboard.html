@@ -1,50 +1,148 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard - Ads Watching</title>
-<link rel="stylesheet" href="style.css">
-</head><body><div class="container"><div class="profile-box">
-    <img src="https://ui-avatars.com/api/?name=User&background=22c55e&color=fff&size=120"
-    class="profile-img">
 
-    <h2>Welcome User 👋</h2>
-    <p>Ads Watching Member</p>
+<title>Dashboard - Ads Watching</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div id="giftBox" onclick="openGift()"
+style="
+background:#22c55e;
+padding:25px;
+border-radius:20px;
+text-align:center;
+cursor:pointer;
+margin-bottom:20px;
+">
+
+<h1>🎁</h1>
+
+<h2 style="color:white;">
+Open Your Gift
+</h2>
+
+<p style="color:white;">
+Welcome Bonus
+</p>
+
 </div>
+
+
+
+<div class="profile-box">
+
+<img src="https://ui-avatars.com/api/?name=User&background=22c55e&color=fff&size=120"
+class="profile-img">
+
+
+<h2 id="userName">
+Welcome User 👋
+</h2>
+
+
+<p>
+Ads Watching Member
+</p>
+
+
+</div>
+
+
 
 
 <div class="card balance-card">
-    <p>Current Balance</p>
-    <h1 id="balance">PKR 2000</h1>
-    <span>🎁 Welcome Bonus Added</span>
+
+<p>Current Balance</p>
+
+<h1 id="balance">
+PKR 2000
+</h1>
+
+<span>
+🎁 Welcome Bonus Added
+</span>
+
+
 </div>
 
 
+
+
 <div class="card">
-    <h3>Quick Actions</h3>
 
-    <button class="login" onclick="location.href='videos.html'">
-        🎥 Watch Videos
-    </button>
 
-    <button class="register" onclick="location.href='deposit.html'">
-        💳 Deposit
-    </button>
+<h3>
+Quick Actions
+</h3>
 
-    <button style="background:#ef4444;color:white;"
-    onclick="location.href='withdraw.html'">
-        💸 Withdraw
-    </button> 
 
-    <button style="background:#0ea5e9;color:white;"
-    onclick="location.href='profile.html'">
-        👤 Profile
-    </button>
+<button class="login" onclick="location.href='videos.html'">
+🎥 Watch Videos
+</button>
+
+
+<button class="register" onclick="location.href='deposit.html'">
+💳 Deposit
+</button>
+
+
+<button style="background:#ef4444;color:white;"
+onclick="location.href='withdraw.html'">
+💸 Withdraw
+</button>
+
+
+<button style="background:#0ea5e9;color:white;"
+onclick="location.href='profile.html'">
+👤 Profile
+</button>
+
+
 <button style="background:#f97316;color:white;"
 onclick="logout()">
 🚪 Logout
 </button>
+
+
 </div>
 
-</div><script src="dashboard.js"></script></body>
+
+</div>
+
+
+
+<script>
+
+function openGift(){
+
+alert("🎉 Congratulations! Welcome Bonus PKR 2000 Added");
+
+document.getElementById("giftBox").style.display="none";
+
+}
+
+
+</script>
+
+
+
+<script src="dashboard.js"></script>
+
+
+</body>
+
 </html>
