@@ -407,7 +407,17 @@ document.getElementById("balance").innerHTML="PKR 2000";
 </script>
 
 
+<script>
+function openGift(){
 
+document.getElementById("giftScreen").style.display="none";
+
+document.getElementById("balance").innerHTML="PKR 2000";
+
+localStorage.setItem("giftOpened","yes");
+
+}
+</script>
 <script src="dashboard.js"></script>
 
 
