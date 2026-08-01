@@ -96,16 +96,13 @@ window.location.href="login.html";
 
 
 
-// Gift Open Function
-
 window.openGift = function(){
-    
-alert("clicked");
-    
+
 let gift = document.getElementById("giftScreen");
 
-gift.classList.add("open-animation");
+if(gift){
 
+gift.classList.add("gift-open");
 
 setTimeout(()=>{
 
@@ -117,6 +114,7 @@ localStorage.setItem("giftOpened","yes");
 
 },1000);
 
+}
 
 }
 
