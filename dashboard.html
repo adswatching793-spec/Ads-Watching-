@@ -10,40 +10,126 @@
 
 <link rel="stylesheet" href="style.css">
 
+
+<style>
+
+.gift-screen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#0f172a;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999;
+}
+
+
+.gift{
+font-size:120px;
+cursor:pointer;
+animation:shake 1s infinite;
+}
+
+
+.gift-text{
+color:white;
+font-size:22px;
+margin-top:20px;
+}
+
+
+.open-animation{
+animation:openGift 1s forwards;
+}
+
+
+.bonus{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:#1e293b;
+padding:35px;
+border-radius:20px;
+color:white;
+text-align:center;
+z-index:1000;
+box-shadow:0 0 30px black;
+}
+
+
+@keyframes shake{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+}
+
+
+@keyframes openGift{
+
+50%{
+transform:scale(1.5) rotate(20deg);
+}
+
+100%{
+transform:scale(0);
+}
+
+}
+
+
+</style>
+
 </head>
 
 
 <body>
 
 
-<div class="container">
+<div class="gift-screen" id="giftScreen">
 
+<div class="gift" onclick="openGift()">
+🎁
+</div>
 
-<div id="giftBox" onclick="openGift()"
-style="
-background:#22c55e;
-padding:25px;
-border-radius:20px;
-text-align:center;
-cursor:pointer;
-margin-bottom:20px;
-">
-
-<h1>🎁</h1>
-
-<h2 style="color:white;">
-Open Your Gift
-</h2>
-
-<p style="color:white;">
-Welcome Bonus
-</p>
+<div class="gift-text">
+Tap To Open Your Gift
+</div>
 
 </div>
 
 
 
+<div class="bonus" id="bonus">
+
+<h1>🎉 Congratulations!</h1>
+
+<h2>Welcome Bonus</h2>
+
+<h1>PKR 2000</h1>
+
+</div>
+
+
+
+
+
+<div class="container">
+
+
 <div class="profile-box">
+
 
 <img src="https://ui-avatars.com/api/?name=User&background=22c55e&color=fff&size=120"
 class="profile-img">
@@ -64,20 +150,26 @@ Ads Watching Member
 
 
 
+
 <div class="card balance-card">
 
-<p>Current Balance</p>
+<p>
+Current Balance
+</p>
+
 
 <h1 id="balance">
-PKR 2000
+PKR 0
 </h1>
 
+
 <span>
-🎁 Welcome Bonus Added
+🎁 Welcome Bonus
 </span>
 
 
 </div>
+
 
 
 
@@ -88,6 +180,7 @@ PKR 2000
 <h3>
 Quick Actions
 </h3>
+
 
 
 <button class="login" onclick="location.href='videos.html'">
@@ -125,13 +218,30 @@ onclick="logout()">
 
 
 
+
+
 <script>
+
 
 function openGift(){
 
-alert("🎉 Congratulations! Welcome Bonus PKR 2000 Added");
+let gift=document.querySelector(".gift");
 
-document.getElementById("giftBox").style.display="none";
+gift.classList.add("open-animation");
+
+
+setTimeout(()=>{
+
+document.getElementById("giftScreen").style.display="none";
+
+document.getElementById("bonus").style.display="block";
+
+
+document.getElementById("balance").innerHTML="PKR 2000";
+
+
+},1000);
+
 
 }
 
