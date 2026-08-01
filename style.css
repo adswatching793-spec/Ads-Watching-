@@ -235,4 +235,16 @@ button:active{
         transform:scale(0);
         opacity:0;
     }
+    
+}.reward-card{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:20px 0;
+}
+
+.gift-box{
+    width:250px;
+    text-align:center;
 }
