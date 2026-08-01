@@ -29,9 +29,61 @@ z-index:999;
 
 
 .gift{
-font-size:120px;
 cursor:pointer;
-animation:shake 1s infinite;
+text-align:center;
+animation:float 2s infinite;
+}
+
+
+.box-body{
+width:130px;
+height:110px;
+background:linear-gradient(45deg,#f59e0b,#f97316);
+border-radius:12px;
+font-size:60px;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 15px 30px rgba(0,0,0,.5);
+}
+
+
+.box-top{
+width:145px;
+height:25px;
+background:#ef4444;
+border-radius:10px;
+margin:auto;
+position:relative;
+top:10px;
+}
+
+
+.gift.open-animation .box-body{
+animation:giftOpen 1s forwards;
+}
+
+
+@keyframes float{
+
+50%{
+transform:translateY(-15px);
+}
+
+}
+
+
+@keyframes giftOpen{
+
+50%{
+transform:scale(1.4) rotate(10deg);
+}
+
+100%{
+transform:scale(0);
+opacity:0;
+}
+
 }
 
 
